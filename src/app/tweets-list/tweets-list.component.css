@@ -1,0 +1,15 @@
+.tweet-list-bg {
+    width: 100%;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.tweet-card {
+    width: 100%;
+    border-radius: 1rem; 
+    background-color: rgba(255, 255, 255, 0.9);
+}

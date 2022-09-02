@@ -1,0 +1,119 @@
+<section class="bg-image"
+  style="background-image: url('../../assets/images/register-bg.jpeg');">
+  <div class="mask d-flex align-items-center h-100">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100 my-5">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+
+          <div class="card mt-5" style="border-radius: 15px; background-color: rgba(255, 255, 255, 0.432);">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-4">Register!</h2>
+
+              <form #Form="ngForm" [formGroup]='exForm' (ngSubmit)="Form.form.valid && runRegister()">
+                <p *ngIf='raiseError'
+                    class=' text-center border border1-1 border-warning alert alert-warning'>{{ showError }}
+                </p>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user fa-lg"></i> </span>
+                        </div>
+                        <input type="text" [(ngModel)]="firstname" placeholder="First Name"
+                            formControlName="firstname" class="form-control">
+                    </div> <!-- input-group.// -->
+                    <small *ngIf="exForm.get('firstname')?.invalid && exForm.get('firstname')?.touched "
+                            class="text-danger font-weight-bold">First Name is required</small>
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user fa-lg"></i> </span>
+                        </div>
+                        <input type="text" [(ngModel)]="lastname" placeholder="Last Name"
+                            formControlName="lastname" class="form-control">
+                    </div> <!-- input-group.// -->
+                    <small *ngIf="exForm.get('lastname')?.invalid && exForm.get('lastname')?.touched "
+                            class="text-danger font-weight-bold">Last Name is required</small>
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user fa-lg"></i> </span>
+                        </div>
+                        <input type="text" [(ngModel)]="username" placeholder="Username"
+                            formControlName="username" class="form-control">
+                    </div> <!-- input-group.// -->
+                    <small *ngIf="exForm.get('username')?.invalid && exForm.get('username')?.touched "
+                            class="text-danger font-weight-bold">Username is required</small>
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input type="email" [(ngModel)]="email" placeholder="Email Address"
+                            formControlName="email" class="form-control">
+                    </div> <!-- input-group.// -->
+                    <small *ngIf="exForm.get('email')?.invalid && exForm.get('email')?.touched"
+                            class="text-danger font-weight-bold">Email Address should be valid</small>
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock fa-lg"></i> </span>
+                        </div>
+                        <input type="password" [(ngModel)]="password" placeholder="Password"
+                                formControlName="password" class="form-control"><br>
+                    </div> <!-- input-group.// -->
+                    <small *ngIf="exForm.get('password')?.invalid && exForm.get('password')?.touched "
+                                class="text-danger font-weight-bold">Password is required</small>
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock fa-lg"></i> </span>
+                        </div>
+                        <input type="password" [(ngModel)]="confirmpassword" placeholder="Confirm Password"
+                                formControlName="confirmpassword" class="form-control"><br>
+                    </div> <!-- input-group.// -->
+                    <small *ngIf="exForm.get('confirmpassword')?.invalid && exForm.get('confirmpassword')?.touched "
+                                class="text-danger font-weight-bold">Confirm Password is required</small>
+                    <small *ngIf="exForm.get('confirmpassword')?.touched && password != confirmpassword"
+                                class="text-danger font-weight-bold">Confirm Password is not correct</small>
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone fa-lg"></i> </span>
+                        </div>
+                        <input type="tel" [(ngModel)]="contact" placeholder="Contact Number"
+                                formControlName="contact" class="form-control"><br>
+                    </div> <!-- input-group.// -->
+                    <small *ngIf="exForm.get('contact')?.invalid && exForm.get('contact')?.touched "
+                                class="text-danger font-weight-bold">Contact Number is required</small>
+                </div> <!-- form-group// -->
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" (click)="validateForm()" 
+                    class="btn btn-success btn-block btn-lg text-body">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-4 mb-0">Have already an account? <a routerLink="/login"
+                    class="link-primary"><u>Login here</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

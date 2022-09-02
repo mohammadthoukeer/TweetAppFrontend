@@ -1,0 +1,68 @@
+
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" routerLink="/home">
+                    <img class="logo" src="..\..\assets\images\tweet.png"/>
+                    <span style="color:deepskyblue;">Tweet App</span>
+                </a>
+            </span>
+            
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="btn nav-link" routerLink="/home" routerLinkActive="active"><i class="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp;Home</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLoggedIn()">
+                        <a class="btn nav-link" routerLink="/tweets/all" routerLinkActive="active"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i>&nbsp;Tweets</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLoggedIn()">
+                        <a class="btn nav-link" routerLink="../users/all" routerLinkActive="active"><i class="fa fa-users fa-lg" aria-hidden="true"></i>&nbsp;Users</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn()">
+                    <li class="nav-item">
+                        <a class="btn nav-link" routerLink="/login" routerLinkActive="active"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbsp;Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn nav-link" routerLink="/register" routerLinkActive="active"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;Register</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav" *ngIf="isLoggedIn()" style="float: right;">
+                    <li class="nav-item">
+                        <button class="btn btn-primary" id="user" type="button">
+                            <i class="fa fa-user fa-fw"></i> {{ username }}
+                        </button>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="btn nav-link" (click)="logout()" routerLink="/login" routerLinkActive="active"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>&nbsp;Log out</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="success-msg alert alert-success d-flex justify-content-between align-items-center" *ngIf="tweetService.showRegisterSuccess">
+        <a (click)="disableRegisterSuccess()" class="close btn btn-link" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Registration Success!</strong>
+    </div>
+
+    <div class="success-msg alert alert-success d-flex justify-content-between align-items-center" *ngIf="tweetService.showResetSuccess">
+        <strong>Reset Password Success!</strong>
+        <a (click)="disableResetSuccess()" class="close btn btn-link" data-dismiss="alert" aria-label="close">&times;</a>
+    </div>
+
+    <div class="success-msg alert alert-success d-flex justify-content-between align-items-center" *ngIf="tweetService.showPostTweetSuccess">
+        <strong>Tweet Posted!</strong>
+        <a (click)="disablePostTweetSuccess()" class="close btn btn-link" data-dismiss="alert" aria-label="close">&times;</a>
+    </div>
+
+    <div class="success-msg alert alert-danger d-flex justify-content-between align-items-center" *ngIf="tweetService.showDeleteTweetSuccess">
+        <strong>Tweet Deleted!</strong>
+        <a (click)="disableDeleteTweetSuccess()" class="close btn btn-link" data-dismiss="alert" aria-label="close">&times;</a>
+    </div>

@@ -1,0 +1,60 @@
+
+<section class="bg-image"
+  style="background-image: url('../../assets/images/tweet-bg.jpg');">
+    <div class="mask d-flex align-items-center h-100">
+        <div class="container h-100 my-1">
+            <div class="row d-flex justify-content-center align-items-center h-100 my-5">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6 col-md-8 col-xl-5 my-5">
+                
+                    <div class="card my-5" style="border-radius: 1rem;">
+                        <div class="col-10 offset-1">
+                        <div class="card-body text-center mt-5 mb-4">
+
+                            <h2 class="card-body mb-0"><img class="logo" src="..\..\assets\images\tweet.png"/>Tweet App</h2><br>
+                            <form (ngSubmit)="Form.form.valid && runLoginAuth()" #Form="ngForm" [formGroup]='exForm'>
+                                <p *ngIf='raiseError'
+                                    class=' text-center border border1-1 border-warning alert alert-warning'>{{ showError }}
+                                </p>
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                        </div>
+                                        <input type="text" [(ngModel)]="username" placeholder="username"
+                                            formControlName="username" class="form-control">
+                                    </div> <!-- input-group.// -->
+                                    <small *ngIf="exForm.get('username')?.invalid && exForm.get('username')?.touched "
+                                            class="text-danger">Username is required</small>
+                                </div> <!-- form-group// -->
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        </div>
+                                        <input type="password" [(ngModel)]="password" placeholder="password"
+                                                formControlName="password" class="form-control"><br>
+                                    </div> <!-- input-group.// -->
+                                    <small *ngIf="exForm.get('password')?.invalid && exForm.get('password')?.touched "
+                                                class="text-danger">Password is required</small>
+                                </div> <!-- form-group// -->
+
+                                <button type="submit"
+                                    class="btn btn-info mx-auto btn-block mb-2"
+                                    (click)="validateForm()">Log in</button>
+
+                                <p class="small pb-lg-2"><a class="text-muted" routerLink="/reset">Forgot password?</a></p>
+                                <p>Don't have an account? <a routerLink="/register" class="link-info">Register here</a></p>
+
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
