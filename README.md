@@ -2,9 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.12.
 
-For getting all the dependencies and files:
+For getting all the dependencies,files and running the tweet app frontend:
 
-Run 'npm install'
+1.Run 'npm install'
+2.For running of data and backend part run the backend tweet application at 8080 port
+3.Run 'ng serve'
+
 
 ## Development server
 
