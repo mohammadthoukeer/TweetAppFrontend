@@ -12,7 +12,6 @@ import { RegisterComponent } from './register/register.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { TweetsListComponent } from './tweets-list/tweets-list.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
-import { ReplyTweetComponent } from './reply-tweet/reply-tweet.component';
 import { UserTweetFilterPipe } from './pipes/user-tweet-filter.pipe';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ErrorComponent } from './error/error.component';
@@ -27,7 +26,6 @@ import { ErrorComponent } from './error/error.component';
     UserListComponent,
     TweetsListComponent,
     DateAgoPipe,
-    ReplyTweetComponent,
     UserTweetFilterPipe,
     ResetPasswordComponent,
     ErrorComponent
