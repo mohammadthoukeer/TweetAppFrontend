@@ -20,7 +20,7 @@
                                 <div class="ml-3">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="mb-0 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 12px;"> 
-                                            @{{ tweet.user.username }}</p>
+                                            @{{ tweet.user }}</p>
                                         <span class="small">
                                             {{ tweet.postedDate | dateAgo }} 
                                         </span>
@@ -48,7 +48,7 @@
                                         <div class="flex-grow-1 flex-shrink-1">
                                             <div class="ml-3">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif;font-size: 12px;"> @{{ reply.user.username }} </p>
+                                                    <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif;font-size: 12px;"> @{{ reply.user }} </p>
                                                     <span class="small">{{ reply.postedDate | dateAgo }}</span>
                                                 </div>
                                                 <p class="mb-0 ml-2 font-weight-bold" style="font-size: small;">{{ reply.tweet }} <span class="text-success">{{ reply.tweetTag }}</span></p>
@@ -87,7 +87,7 @@
                                 <div class="ml-3">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 12px;"> 
-                                            @{{ tweet.user.username }}</p>
+                                            @{{ tweet.user }}</p>
                                         <span class="small">
                                             {{ tweet.postedDate | dateAgo }} 
                                         </span>
@@ -121,7 +121,7 @@
                                         <div class="flex-grow-1 flex-shrink-1">
                                             <div class="ml-3">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif;font-size: 12px;"> @{{ reply.user.username }} </p>
+                                                    <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif;font-size: 12px;"> @{{ reply.user }} </p>
                                                     <span class="small">{{ reply.postedDate | dateAgo }}</span>
                                                 </div>
                                                 <p class="mb-0 ml-2 font-weight-bold" style="font-size: small;">{{ reply.tweet }} <span class="text-success">{{ reply.tweetTag }}</span></p>
@@ -158,7 +158,7 @@
                             <div class="ml-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 12px;"> 
-                                        @{{ replyTweet.user.username }}</p>
+                                        @{{ replyTweet.user }}</p>
                                     <span class="small">
                                         {{ replyTweet.postedDate | dateAgo }} 
                                     </span>
@@ -302,7 +302,7 @@
                         <div class="flex-grow-1 flex-shrink-1">
                             <div class="ml-3 mr-1">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif;font-size: 12px;"> @{{ editTweet.user.username }} </p>
+                                    <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif;font-size: 12px;"> @{{ editTweet.user }} </p>
                                 </div>
             
                                 <div class="flex-grow-1 flex-shrink-1">
@@ -310,7 +310,7 @@
                                         
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <textarea class="form-control" [(ngModel)]="editTweet.tweet" formControlName="editTweetMessage" style="font-size: 12px;" placeholder="Message..."></textarea>
+                                                <textarea class="form-control" [ngModel]="editTweet.tweet" formControlName="editTweetMessage" style="font-size: 12px;" placeholder="Message..."></textarea>
                                             </div>
                                             <small *ngIf="editTweetForm.get('editTweetMessage')?.errors?.['required'] && editTweetForm.get('editTweetMessage')?.touched "
                                                         class="text-danger">Tweet Message is required</small>
@@ -366,7 +366,7 @@
                             <div class="ml-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <p class="mb-1 text-primary font-weight-bold" style="font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 12px;"> 
-                                        @{{ deleteTweet.user.username }}</p>
+                                        @{{ deleteTweet.user }}</p>
                                     <span class="small">
                                         {{ deleteTweet.postedDate | dateAgo }} 
                                     </span>
