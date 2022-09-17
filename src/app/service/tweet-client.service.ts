@@ -9,6 +9,9 @@ import { LoginSessionService } from './login-session.service';
 })
 export class TweetClientService {
 
+  //baseUrl = "http://localhost:8888/api/v1.0/tweets/";
+  baseUrl = "http://tweetappbackend-env.eba-tamjyui2.us-east-2.elasticbeanstalk.com/api/v1.0/tweets/";
+
   showResetSuccess!: any;
   showRegisterSuccess!: any;
   showPostTweetSuccess!: any;
@@ -24,24 +27,24 @@ export class TweetClientService {
   JWT = localStorage.getItem('token')
 
   public generateToken(request: any) {
-    let response = this.http.post("http://localhost:8888/api/v1.0/tweets/login", request);
+    let response = this.http.post(this.baseUrl + "login", request);
     return response;
   }
 
   public validateToken(){
     let token: any = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', token);
-    let response = this.http.get("http://localhost:8888/api/v1.0/tweets/validate", { headers });
+    let response = this.http.get(this.baseUrl + "validate", { headers });
     return response;
   }
 
   public registerUser(user: newUser){
-    let response =  this.http.post("http://localhost:8888/api/v1.0/tweets/register", user);
+    let response =  this.http.post(this.baseUrl + "register", user);
     return response;
   }
 
   public resetPassword(resetPasswordUser: any,username: any){
-    let url = "http://localhost:8888/api/v1.0/tweets/" + username + "/forgot";
+    let url = this.baseUrl + username + "/forgot";
     let response = this.http.put(url,resetPasswordUser);
     return response;
   }
@@ -52,7 +55,7 @@ export class TweetClientService {
         this.loginService.logout();
       }
     });
-    let response = this.http.get("http://localhost:8888/api/v1.0/tweets/users/all");
+    let response = this.http.get(this.baseUrl + "users/all");
     return response;
   }
 
@@ -62,7 +65,7 @@ export class TweetClientService {
         this.loginService.logout();
       }
     });
-    let response = this.http.get("http://localhost:8888/api/v1.0/tweets/all");
+    let response = this.http.get(this.baseUrl + "all");
     return response;
   }
 
@@ -72,7 +75,7 @@ export class TweetClientService {
         this.loginService.logout();
       }
     });
-    let url = "http://localhost:8888/api/v1.0/tweets/" + username;
+    let url = this.baseUrl + username;
     let response = this.http.get(url);
     return response;
   }
@@ -84,7 +87,7 @@ export class TweetClientService {
       }
     });
     let username = localStorage.getItem('username');
-    let url = "http://localhost:8888/api/v1.0/tweets/" + username + "/like/" + tweet.id;
+    let url = this.baseUrl + username + "/like/" + tweet.id;
     let response = this.http.put(url,{});
     return response;
   }
@@ -96,7 +99,7 @@ export class TweetClientService {
       }
     });
     let username = localStorage.getItem('username');
-    let url = "http://localhost:8888/api/v1.0/tweets/" + username + "/add";
+    let url = this.baseUrl + username + "/add";
     let response = this.http.post(url,tweet);
     return response;
   }
@@ -108,7 +111,7 @@ export class TweetClientService {
       }
     });
     let username = localStorage.getItem('username');
-    let url = "http://localhost:8888/api/v1.0/tweets/" + username + "/delete/" + tweet.id;
+    let url = this.baseUrl + username + "/delete/" + tweet.id;
     let response = this.http.delete(url);
     return response;
   }
@@ -120,7 +123,7 @@ export class TweetClientService {
       }
     });
     let username = localStorage.getItem('username');
-    let url = "http://localhost:8888/api/v1.0/tweets/" + username + "/update/" + tweet.id;
+    let url = this.baseUrl + username + "/update/" + tweet.id;
     let response = this.http.put(url,tweet);
     return response;
   }
@@ -132,7 +135,7 @@ export class TweetClientService {
       }
     });
     let username = localStorage.getItem('username');
-    let url = "http://localhost:8888/api/v1.0/tweets/" + username + "/reply/" + parentTweetId;
+    let url = this.baseUrl + username + "/reply/" + parentTweetId;
     let response = this.http.post(url,tweet);
     return response;
   }

@@ -16,7 +16,7 @@ export class UserTweetFilterPipe implements PipeTransform {
       if(item.username){
         return item.username.toLowerCase().includes(filterText);
       }
-      return item.user.username.toLowerCase().includes(filterText);
+      return item.user.toLowerCase().includes(filterText);
     });
 
   }
