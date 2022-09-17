@@ -1,45 +1,16 @@
-<div class="moon"></div>
-<div class="moon__crater moon__crater1"></div>
-<div class="moon__crater moon__crater2"></div>
-<div class="moon__crater moon__crater3"></div>
-
-<div class="star star1"></div>
-<div class="star star2"></div>
-<div class="star star3"></div>
-<div class="star star4"></div>
-<div class="star star5"></div>
-
-<div class="error">
-  <div class="error__title">404</div>
-  <div class="error__subtitle">Hmmm...</div>
-  <div class="error__description">Looks like page you are looking for doesn't exists.</div>
-  <button class="error__button error__button--active" routerLink="/login">Home</button>
-</div>
-
-<div class="astronaut bg-dark">
-  <div class="astronaut__backpack"></div>
-  <div class="astronaut__body"></div>
-  <div class="astronaut__body__chest"></div>
-  <div class="astronaut__arm-left1"></div>
-  <div class="astronaut__arm-left2"></div>
-  <div class="astronaut__arm-right1"></div>
-  <div class="astronaut__arm-right2"></div>
-  <div class="astronaut__arm-thumb-left"></div>
-  <div class="astronaut__arm-thumb-right"></div>
-  <div class="astronaut__leg-left"></div>
-  <div class="astronaut__leg-right"></div>
-  <div class="astronaut__foot-left"></div>
-  <div class="astronaut__foot-right"></div>
-  <div class="astronaut__wrist-left"></div>
-  <div class="astronaut__wrist-right"></div>
-  
-  <div class="astronaut__cord">
-    <canvas id="cord" height="500px" width="500px"></canvas>
-  </div>
-  
-  <div class="astronaut__head">
-    <canvas id="visor" width="60px" height="60px"></canvas>
-    <div class="astronaut__head-visor-flare1"></div>
-    <div class="astronaut__head-visor-flare2"></div>
-  </div>
-</div>
+<section class="error-bg"
+  style="background-image: url('../../assets/images/error-bg.jpg');">
+    <div class="mask d-flex h-100 my-5">
+        <div class="container d-flex justify-content-center flex-column h-100 my-5">
+            <div class="row d-flex align-items-center justify-content-center my-5 h-100">
+                <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center my-5">
+                    <h1 class="display-1 font-weight-bold text-warning">404</h1>
+                    <h1 class="text-light mb-5">Page Not Found</h1>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-outline-light font-weight-bold mt-5" routerLink="/home">Go to Home</button>
+            </div>
+        </div>
+    </div>
+</section>
