@@ -115,6 +115,7 @@ export class TweetsListComponent implements OnInit {
         this.refreshUserTweets.next(true);
         this.tweetService.showPostTweetSuccess = true;
       });
+      this.postTweetForm.reset();
     }
   }
 
@@ -127,6 +128,7 @@ export class TweetsListComponent implements OnInit {
         this.refreshTweets.next(true);
         this.refreshUserTweets.next(true);
       });
+      this.editTweetForm.reset();
     }
   }
 
@@ -149,6 +151,7 @@ export class TweetsListComponent implements OnInit {
         this.refreshTweets.next(true);
         this.refreshUserTweets.next(true);
       });
+      this.replyTweetForm.reset();
     }
   }
 

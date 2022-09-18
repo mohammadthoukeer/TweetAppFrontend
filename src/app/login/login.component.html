@@ -26,7 +26,7 @@
                                             formControlName="username" class="form-control">
                                     </div> <!-- input-group.// -->
                                     <small *ngIf="exForm.get('username')?.invalid && exForm.get('username')?.touched "
-                                            class="text-danger">Username is required</small>
+                                            class="text-danger font-weight-bold">Username is required</small>
                                 </div> <!-- form-group// -->
 
                                 <div class="form-group">
@@ -38,7 +38,7 @@
                                                 formControlName="password" class="form-control"><br>
                                     </div> <!-- input-group.// -->
                                     <small *ngIf="exForm.get('password')?.invalid && exForm.get('password')?.touched "
-                                                class="text-danger">Password is required</small>
+                                                class="text-danger font-weight-bold">Password is required</small>
                                 </div> <!-- form-group// -->
 
                                 <button type="submit"

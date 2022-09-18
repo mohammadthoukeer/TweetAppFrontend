@@ -8,6 +8,7 @@ export class DateAgoPipe implements PipeTransform {
   transform(value: any, args?: any): any {
 
     if (!value) { return 'a long time ago'; }
+    // value : 2022-09-18T06:46:24.092659
     let time = (Date.now() - Date.parse(value)) / 1000;
     if (time < 10) {
       return 'just now';
